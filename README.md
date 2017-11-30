@@ -8,9 +8,11 @@
 
 ## Application: Twitter
 Create social network application that (in the first phase) allows an anonymous user to:
+
 1. Tweet a message.
 2. List all messages in a chronological order with the latest messages displayed first.
 3. Exit the application.
+
 The user chooses a functionality from a menu using the standard input stream (console).
 
 ## Exercises
