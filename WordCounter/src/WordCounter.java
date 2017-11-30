@@ -19,7 +19,7 @@ public class WordCounter {
             }
             StringBuilder sb = new StringBuilder();
             for (String key : map.keySet()) {
-                sb.append(key + ": " + map.get(key)+"\n");
+                sb.append(key + ": " + map.get(key) + "\n");
             }
             System.out.println(sb.toString());
         } catch (IOException e) {
