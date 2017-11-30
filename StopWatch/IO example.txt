@@ -1,0 +1,14 @@
+[input] start
+1
+2
+3
+[input] p
+Stopwatch paused
+[input] r
+Stopwatch resumed
+4
+5
+[input] s
+Stopwatch stopped
+
+Process finished with exit code 0
