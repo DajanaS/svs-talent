@@ -1,3 +1,5 @@
+package tweet;
+
 import java.util.*;
 
 public class Tweet implements Comparable<Tweet> {

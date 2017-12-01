@@ -1,4 +1,6 @@
-import java.util.*;
+import readinput.*;
+import tweet.Tweet;
+import tweetscontainer.*;
 
 public class UI {
     public static void displayMenu() {
@@ -11,14 +13,16 @@ public class UI {
     }
 
     public static void main(String[] args) {
+        TweetsContainer tweets = new CollectionTweetsContainer();
+        ReadInput reader = new ConsoleReadInput();
+
         displayMenu();
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        TweetsContainer tweets = new TweetsContainer();
+        String input = reader.readInput();
+
         while (!input.equals("3")) {
             if (input.equals("1")) {
                 System.out.println("Write your message below");
-                String content = scanner.nextLine();
+                String content = reader.readInput();
                 tweets.add(new Tweet(content));
                 System.out.println("Tweet saved.");
             } else if (input.equals("2")) {
@@ -28,9 +32,10 @@ public class UI {
                 System.out.println("Entered option not valid.");
             }
             System.out.println("Press any key to go back to the menu.");
-            input = scanner.nextLine();
+            input = reader.readInput();
+
             displayMenu();
-            input = scanner.nextLine();
+            input = reader.readInput();
         }
     }
 }
