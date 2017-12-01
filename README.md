@@ -27,3 +27,7 @@ The print process should be interrupted if it fails to complete in a given time 
 ### StopWatch
 Create a stopwatch component that prints out each passing second until terminated by a command from the console captured from the standard input.
 Additional commands should allow the stopwatch to be paused and resumed. 
+
+### MotionDetector
+Create a motion detector component which once started takes images (byte array) from an image capturing device every one (1) second. In case it detects changes between two subsequent images, it needs to trigger an alarm on a number of previously registered alarm channels.
+For testing/simulation purposes, create an image capturing device which simulates image capturing by reading text from the console (System.in) and a single alarm channel which when used writes the "Alarm" text to the console (System.out). Group component related classes and interfaces in distinct packages.
