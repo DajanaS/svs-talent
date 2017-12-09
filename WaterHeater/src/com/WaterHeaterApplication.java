@@ -1,4 +1,9 @@
-package com.changeme;
+package com;
+
+import com.ventoelectrics.heater.Heater;
+import com.ventoelectrics.powerswitch.PowerSwitch;
+import com.ventoelectrics.thermometer.Thermometer;
+import com.ventoelectrics.thermoregulator.Thermoregulator;
 
 import java.util.concurrent.TimeUnit;
 
