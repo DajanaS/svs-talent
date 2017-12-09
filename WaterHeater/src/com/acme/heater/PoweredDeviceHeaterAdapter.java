@@ -1,4 +1,4 @@
-package com.acme.thermoregulators;
+package com.acme.heater;
 
 import com.ventoelectrics.powerswitch.PoweredDevice;
 import com.ventoelectrics.heater.Heater;

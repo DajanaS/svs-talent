@@ -1,5 +1,8 @@
 package com.acme.thermoregulators;
 
+import com.acme.heater.PoweredDeviceHeaterAdapter;
+import com.acme.thermometer.PoweredDeviceThermometerAdapter;
+
 import java.util.concurrent.TimeUnit;
 
 public class StandardThermoregulator extends Thread {
