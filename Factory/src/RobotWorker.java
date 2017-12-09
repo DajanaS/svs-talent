@@ -9,9 +9,4 @@ public class RobotWorker implements Worker {
     public void stopWorking() {
         System.out.println("RobotWorker.stopWorking");
     }
-
-    @Override
-    public void eat() {
-        System.out.println("RobotWorker.eat - Degenerate implementation");
-    }
 }
