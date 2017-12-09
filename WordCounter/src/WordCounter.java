@@ -11,6 +11,7 @@ public class WordCounter {
             while (scanner.hasNextLine()) {
                 String[] words = scanner.nextLine().split(" ");
                 for (String word : words) {
+                    word = word.toLowerCase();
                     if (!map.containsKey(word))
                         map.put(word, 1);
                     else
