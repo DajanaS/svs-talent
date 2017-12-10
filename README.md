@@ -15,7 +15,7 @@ Create social network application that (in the first phase) allows an anonymous 
 
 The user chooses a functionality from a menu using the standard input stream (console).
 
-## Exercises
+## Exercises Java SE
 
 ### WordCounter
 Count the number of occurrences of each word in a file specified as an argument to the application. 
@@ -46,3 +46,11 @@ The thermoregulator components should run on its own taking a read from the ther
 Group component related classes and interfaces in distinct packages following the *com.<company\>.<component\>* package organization schema.
 
 Make sure you're able to offer the thermoregulator product line to other vendors in the future - your thermoregulator components should not depend on Ventoelectrics' components (classes and interfaces).
+
+## Exercises Java Enterprise
+
+### ImprovedWordCounter
+Modify the WordCounter application to ignore the word capitalization using Apache's Commons Lang 3 Library. Hint: Use https://mvnrepository.com to find the correct GAV for the library in question.
+
+### MultiModuleWaterHeater
+Modify the project structure of the WaterHeater to use a module for each component and configure the dependencies among the modules. Create a separate "application" module for the "main" application class.
