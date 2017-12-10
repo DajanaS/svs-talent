@@ -20,6 +20,15 @@ The user chooses a functionality from a menu using the standard input stream (co
 ### Phase 2
 Modify the Twitter application to use the Spring framework.
 
+### Phase 3
+Modify the Twitter application to use a H2 database leveraging the Spring Data JPA technology. Include functionality for:
+
+- Signing up (only email is stored)
+- Signing in (by specifying the email)
+- Signing out
+- Following other twitters
+- Modify the functionality for listing tweets to only include those which belong to twitters being followed by the signed in twitter.
+
 ## Exercises Java SE
 
 ### WordCounter
@@ -62,3 +71,19 @@ Modify the project structure of the WaterHeater to use a module for each compone
 
 ### SpringWaterHeater
 Modify the WaterHeater application to use the Spring framework. Control whether the WaterHeater uses the standard or the efficient thermoregulator using a Spring profile.
+
+### Library
+Create a Library application that allows a library administrator to:
+
+- Register books
+- List generated books
+- Member registration
+- Member listing
+- Book lending
+
+The following information is kept for each book:
+
+- The international Standard Book Number (ISBN)
+- Title
+
+When listing members, display information about books lent to that user. Likewise, when listing books, display information about the member the book has been lent to if any.
