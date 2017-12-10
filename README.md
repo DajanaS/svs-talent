@@ -54,3 +54,5 @@ Modify the WordCounter application to ignore the word capitalization using Apach
 
 ### MultiModuleWaterHeater
 Modify the project structure of the WaterHeater to use a module for each component and configure the dependencies among the modules. Create a separate "application" module for the "main" application class.
+
+ 
