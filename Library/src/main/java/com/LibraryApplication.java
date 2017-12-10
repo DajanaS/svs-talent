@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.util.*;
+
 @SpringBootApplication
 @EnableJpaRepositories
 public class LibraryApplication {
@@ -26,7 +28,7 @@ public class LibraryApplication {
 
     public static void main(String[] args) throws Exception {
         ApplicationContext context = SpringApplication.run(LibraryApplication.class, args);
-        LibraryRepository repository = context.getBean(LibraryRepositoryBookRepositoryAdapter.class);
+        LibraryRepository repository = context.getBean(RepositoryAdapter.class);
         ReadInput reader = context.getBean(ConsoleReadInput.class);
 
         displayMenu();
@@ -34,7 +36,7 @@ public class LibraryApplication {
 
         while (!input.equals("6")) {
             if (input.equals("1")) {
-                System.out.println("Write the isbn and the title of the book below");
+                System.out.println("Write the isbn and the title of the book below:");
                 String[] content = reader.readInput().split(" ");
                 repository.registerBook(new Book(content[0], content[1]));
                 System.out.println("Book registered.");
@@ -42,10 +44,15 @@ public class LibraryApplication {
                 System.out.println("All registered books:\n");
                 Iterable<Book> bookIterable = repository.listRegisteredBooks();
                 for (Book book : bookIterable) {
-                    System.out.println(book.toString());
+                    System.out.println(book.toString() + " is landed to: ");
+                    Collection<Member> members = book.getMembers();
+                    if (members.size() == 0) System.out.println("   nobody.");
+                    else for (Member m : members) {
+                        System.out.println("   " + m);
+                    }
                 }
             } else if (input.equals("3")) {
-                System.out.println("Write the name of the member below:\n");
+                System.out.println("Write the name of the member below:");
                 String content = reader.readInput();
                 repository.registerMember(new Member(content));
                 System.out.println("Member registered.");
@@ -53,14 +60,19 @@ public class LibraryApplication {
                 System.out.println("All registered members:\n");
                 Iterable<Member> memberIterable = repository.listRegisteredMembers();
                 for (Member member : memberIterable) {
-                    System.out.println(member.toString());
+                    System.out.println(member.toString() + " has taken the following books:");
+                    Collection<Book> books = member.getBooks();
+                    if (books.size() == 0) System.out.println("   any.");
+                    else for (Book b : books) {
+                        System.out.println("   " + b);
+                    }
                 }
             } else if (input.equals("5")) {
-                System.out.println("Enter the id of the member and the id of the book (s)he is lending:\n");
+                System.out.println("Enter the name of the member and the name of the book (s)he is lending:");
                 String[] content = reader.readInput().split(" ");
-                String memberID = content[0];
-                String bookID = content[1];
-                repository.landBook(memberID, bookID);
+                String memberName = content[0];
+                String bookTitle = content[1];
+                repository.landBook(memberName, bookTitle);
             } else {
                 System.out.println("Entered option not valid.");
             }

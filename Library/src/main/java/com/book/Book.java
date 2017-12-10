@@ -13,16 +13,16 @@ public class Book {
     private String isbn;
     private String title;
     @ManyToMany(fetch = FetchType.EAGER)
-    private Collection<Member> landed_books;
+    private Collection<Member> members;
 
     public Book() {
-        landed_books = new ArrayList<Member>();
+        members = new ArrayList<Member>();
     }
 
     public Book(String isbn, String title) {
         this.isbn = isbn;
         this.title = title;
-        landed_books = new ArrayList<Member>();
+        members = new ArrayList<Member>();
     }
 
     public String getIsbn() {
@@ -42,16 +42,26 @@ public class Book {
     }
 
     public void addMember(Member member) {
-        landed_books.add(member);
+        members.add(member);
+    }
+
+    public Collection<Member> getMembers() {
+        return members;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", isbn='" + isbn + '\'' +
-                ", title='" + title + '\'' +
-                ", landed_books=" + landed_books +
-                '}';
+        return isbn + " " + title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+
+        Book book = (Book) o;
+
+        if (!getIsbn().equals(book.getIsbn())) return false;
+        return getTitle().equals(book.getTitle());
     }
 }

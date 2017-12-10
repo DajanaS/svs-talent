@@ -11,7 +11,7 @@ public class Member {
     @GeneratedValue
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "landed_books", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "members", fetch = FetchType.EAGER)
     private Collection<Book> books;
 
     public Member() {
@@ -35,12 +35,22 @@ public class Member {
         books.add(book);
     }
 
+    public Collection<Book> getBooks() {
+        return books;
+    }
+
     @Override
     public String toString() {
-        return "Member{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", books=" + books +
-                '}';
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Member)) return false;
+
+        Member member = (Member) o;
+
+        return getName() != null ? getName().equals(member.getName()) : member.getName() == null;
     }
 }
