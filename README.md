@@ -7,6 +7,8 @@
 - Web
 
 ## Application: Twitter
+
+### Phase 1
 Create social network application that (in the first phase) allows an anonymous user to:
 
 1. Tweet a message.
@@ -14,6 +16,9 @@ Create social network application that (in the first phase) allows an anonymous 
 3. Exit the application.
 
 The user chooses a functionality from a menu using the standard input stream (console).
+
+### Phase 2
+Modify the Twitter application to use the Spring framework.
 
 ## Exercises Java SE
 
@@ -55,4 +60,5 @@ Modify the WordCounter application to ignore the word capitalization using Apach
 ### MultiModuleWaterHeater
 Modify the project structure of the WaterHeater to use a module for each component and configure the dependencies among the modules. Create a separate "application" module for the "main" application class.
 
- 
+### SpringWaterHeater
+Modify the WaterHeater application to use the Spring framework. Control whether the WaterHeater uses the standard or the efficient thermoregulator using a Spring profile.
