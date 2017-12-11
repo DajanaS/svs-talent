@@ -1,6 +1,6 @@
 import readinput.*;
 import tweet.Tweet;
-import tweetscontainer.*;
+import repository.*;
 
 public class UI {
     public static void displayMenu() {
@@ -13,7 +13,7 @@ public class UI {
     }
 
     public static void main(String[] args) {
-        TweetsContainer tweets = new CollectionTweetsContainer();
+        TweetsRepository tweets = new CollectionTweetsRepository();
         ReadInput reader = new ConsoleReadInput();
 
         displayMenu();

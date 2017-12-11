@@ -1,13 +1,13 @@
-package tweetscontainer;
+package repository;
 
 import tweet.Tweet;
 
 import java.util.*;
 
-public class CollectionTweetsContainer implements TweetsContainer {
+public class CollectionTweetsRepository implements TweetsRepository {
     private ArrayList<Tweet> tweets;
 
-    public CollectionTweetsContainer() {
+    public CollectionTweetsRepository() {
         tweets = new ArrayList<>();
     }
 
