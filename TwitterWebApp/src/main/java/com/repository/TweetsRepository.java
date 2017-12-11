@@ -1,6 +1,6 @@
-package repository;
+package com.repository;
 
-import tweet.Tweet;
+import com.tweet.*;
 
 public interface TweetsRepository {
     void add(Tweet tweet);

@@ -1,4 +1,4 @@
-package readinput;
+package com.readinput;
 
 public interface ReadInput {
     String readInput();

@@ -1,7 +1,10 @@
-package readinput;
+package com.readinput;
+
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class ConsoleReadInput implements ReadInput {
     private Scanner scanner;
 

@@ -1,7 +1,13 @@
-import readinput.*;
-import tweet.Tweet;
-import repository.*;
+package com;
 
+import com.readinput.*;
+import com.tweet.Tweet;
+import com.repository.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
 public class UI {
     public static void displayMenu() {
         System.out.println("============================ MENU ============================");
@@ -13,8 +19,9 @@ public class UI {
     }
 
     public static void main(String[] args) {
-        TweetsRepository tweets = new CollectionTweetsRepository();
-        ReadInput reader = new ConsoleReadInput();
+        ApplicationContext context = SpringApplication.run(UI.class, args);
+        TweetsRepository tweets = context.getBean(CollectionTweetsRepository.class);
+        ReadInput reader = context.getBean(ConsoleReadInput.class);
 
         displayMenu();
         String input = reader.readInput();
@@ -37,5 +44,6 @@ public class UI {
             displayMenu();
             input = reader.readInput();
         }
+        System.exit(-1);
     }
 }

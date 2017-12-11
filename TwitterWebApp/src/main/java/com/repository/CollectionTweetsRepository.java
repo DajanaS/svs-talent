@@ -1,9 +1,11 @@
-package repository;
+package com.repository;
 
-import tweet.Tweet;
+import com.tweet.*;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class CollectionTweetsRepository implements TweetsRepository {
     private ArrayList<Tweet> tweets;
 

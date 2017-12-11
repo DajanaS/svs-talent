@@ -1,7 +1,10 @@
-package tweet;
+package com.tweet;
+
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class Tweet implements Comparable<Tweet> {
     private String content;
     private Date time;
