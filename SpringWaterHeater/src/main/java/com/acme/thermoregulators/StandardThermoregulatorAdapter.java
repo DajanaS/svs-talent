@@ -1,15 +1,17 @@
 package com.acme.thermoregulators;
 
-import com.ventoelectrics.powerswitch.*;
 import com.ventoelectrics.thermoregulator.Thermoregulator;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PoweredDeviceThermoregulatorAdapter implements PoweredDevice {
-    private Thermoregulator thermoregulator;
+@Profile("standard")
+public class StandardThermoregulatorAdapter implements Thermoregulator {
+    private StandardThermoregulator thermoregulator;
 
-    public PoweredDeviceThermoregulatorAdapter(Thermoregulator thermoregulator) {
-        this.thermoregulator = thermoregulator;
+    @Override
+    public void setTemperature(int temperature) {
+        thermoregulator.setTemperature(temperature);
     }
 
     @Override

@@ -2,13 +2,11 @@ package com.acme.thermoregulators;
 
 import com.acme.heater.PoweredDeviceHeaterAdapter;
 import com.acme.thermometer.PoweredDeviceThermometerAdapter;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 @Component
-@Profile("efficient")
 public class EfficientThermoregulator extends Thread {
     private int temperature;
     private PoweredDeviceHeaterAdapter heater;
@@ -44,5 +42,13 @@ public class EfficientThermoregulator extends Thread {
                 return;
             }
         }
+    }
+
+    public void enablePower() {
+        start();
+    }
+
+    public void disablePower() {
+        interrupt();
     }
 }

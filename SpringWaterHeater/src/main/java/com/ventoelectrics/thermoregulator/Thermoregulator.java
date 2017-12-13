@@ -4,5 +4,5 @@ import com.ventoelectrics.powerswitch.*;
 
 public interface Thermoregulator extends PoweredDevice {
 
-    void setTemperature(Integer temperature);
+    void setTemperature(int temperature);
 }

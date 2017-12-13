@@ -2,15 +2,12 @@ package com.acme.thermoregulators;
 
 import com.acme.heater.PoweredDeviceHeaterAdapter;
 import com.acme.thermometer.PoweredDeviceThermometerAdapter;
-import com.ventoelectrics.thermoregulator.Thermoregulator;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
 @Component
-@Profile("standard")
-public class StandardThermoregulator extends Thread implements Thermoregulator {
+public class StandardThermoregulator extends Thread {
     private int temperature;
     private PoweredDeviceHeaterAdapter heater;
     private PoweredDeviceThermometerAdapter thermometer;
@@ -47,13 +44,11 @@ public class StandardThermoregulator extends Thread implements Thermoregulator {
         }
     }
 
-    @Override
     public void enablePower() {
         start();
     }
 
-    @Override
     public void disablePower() {
-        stop();
+        interrupt();
     }
 }
