@@ -94,5 +94,5 @@ When listing members, display information about books lent to that user. Likewis
 ### WebCalculator
 Create a simple web calculator that supports the operations of adding integer numbers. Enable the calculator to work through both GET and POST methods.
 
-### LibraryRESTful
-Modify the Library application to expose all functionalities through RESTful web services.
+### Library
+Modify the existing Library application to expose all functionalities through RESTful web services.
