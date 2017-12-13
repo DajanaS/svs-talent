@@ -64,25 +64,11 @@ public class RepositoryAdapter implements LibraryRepository {
     @Override
     public void landBook(String m, String b) {
         Member member = memberRepository.findByName(m);
-        System.out.println("By name " + m + " is found: " + member);
         Book book = bookRepository.findByTitle(b);
-        System.out.println("By title " + b + " is found: " + book);
-        System.out.println("Member's book listata pred da se dodade: ");
-        System.out.println(member.toString() + " has taken the following books:");
-        Collection<Book> books = member.getBooks();
-        if (books.size() == 0) System.out.println("   any.");
-        else for (Book bo : books) {
-            System.out.println("   " + bo);
-        }
         member.addBook(book);
-        System.out.println("Member's book listata otkako ke se dodade: ");
-        System.out.println(member.toString() + " has taken the following books:");
-        books = member.getBooks();
-        if (books.size() == 0) System.out.println("   any.");
-        else for (Book bo : books) {
-            System.out.println("   " + bo);
-        }
-        //book.addMember(member);
+        memberRepository.save(member);
+        book.addMember(member);
+        bookRepository.save(book);
     }
 
     public Collection<Book> getBooksLandedBy(Member member){
