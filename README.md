@@ -29,6 +29,9 @@ Modify the Twitter application to use a H2 database leveraging the Spring Data J
 - Following other twitters
 - Modify the functionality for listing tweets to only include those which belong to twitters being followed by the signed in twitter.
 
+### Phase 4
+Modify the Twitter application to expose all functionalities through RESTful web services.
+
 ## Exercises Java SE
 
 ### WordCounter
@@ -90,3 +93,6 @@ When listing members, display information about books lent to that user. Likewis
 
 ### WebCalculator
 Create a simple web calculator that supports the operations of adding integer numbers. Enable the calculator to work through both GET and POST methods.
+
+### LibraryRESTful
+Modify the Library application to expose all functionalities through RESTful web services.
