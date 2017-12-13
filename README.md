@@ -87,3 +87,6 @@ The following information is kept for each book:
 - Title
 
 When listing members, display information about books lent to that user. Likewise, when listing books, display information about the member the book has been lent to if any.
+
+### WebCalculator
+Create a simple web calculator that supports the operations of adding integer numbers. Enable the calculator to work through both GET and POST methods.
