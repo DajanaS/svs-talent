@@ -7,17 +7,20 @@ import com.repository.BookRepository;
 import com.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Service
+@RequestMapping("/members")
 public class MemberService {
     private MemberRepository memberRepository;
     private BookRepository bookRepository;
 
     @Autowired
-    public MemberService(MemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository, BookRepository bookRepository) {
         this.memberRepository = memberRepository;
+        this.bookRepository = bookRepository;
     }
 
     public List<Member> findMembers() {
@@ -28,11 +31,14 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    public void addBook(Long memberId, Long bookId) {
+    public void landBook(Long memberId, Long bookId) {
         Member member = memberRepository.findById(memberId);
         Book book = bookRepository.findById(bookId);
 
         member.addBook(book);
         memberRepository.save(member);
+
+        book.addMember(member);
+        bookRepository.save(book);
     }
 }
