@@ -1,0 +1,108 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="myTab" role="tablist" style="background-color: #e3f2fd;">
+  <li class="nav-item active">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+       aria-selected="true">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="register-book-tab" data-toggle="tab" href="#register-book" role="tab"
+       aria-controls="register-book" aria-selected="false">Register a book</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="list-books-tab" data-toggle="tab" href="#list-books" role="tab" aria-controls="list-books"
+       aria-selected="false" (click)="getBooks()">List all registered books</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="register-member-tab" data-toggle="tab" href="#register-member" role="tab"
+       aria-controls="register-member" aria-selected="false">Register a member</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="list-members-tab" data-toggle="tab" href="#list-members" role="tab"
+       aria-controls="list-members" aria-selected="false" (click)="getMembers()">List all registered members</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="book-lend-tab" data-toggle="tab" href="#book-lend" role="tab" aria-controls="book-lend"
+       aria-selected="false" (click)="getBoth()">Book lending</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab"><h1>Welcome to {{title}}!</h1></div>
+
+  <div class="tab-pane" id="register-book" role="tabpanel" aria-labelledby="register-book-tab">
+    <div class="container-fluid" style="padding: 20px;">
+      <form class="form-inline">
+        <label class="sr-only" for="bookIsbn">Book ISBN</label>
+        <input #bookIsbn type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="bookIsbn" placeholder="Book ISBN">
+
+        <label class="sr-only" for="bookTitle">Book Title</label>
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <input #bookTitle type="text" class="form-control" id="bookTitle" placeholder="Book Title">
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="registerBook(bookIsbn.value, bookTitle.value)">Register
+          book
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="list-books" role="tabpanel" aria-labelledby="list-books-tab">
+    <div class="container-left" style="padding: 20px; width: 30%;">
+      <ul class="list-group" *ngFor="let book of books">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ book.isbn }} {{ book.title }}
+          <span class="badge badge-primary badge-pill">0</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="register-member" role="tabpanel" aria-labelledby="register-member-tab">
+    <div class="container-fluid" style="padding: 20px;">
+      <form class="form-inline">
+        <label class="sr-only" for="memberName">Name</label>
+        <input #memberName type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="memberName"
+               placeholder="Member Full Name"/>
+        <button type="submit" class="btn btn-primary" (click)="registerMember(memberName.value)">Register member
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="list-members" role="tabpanel" aria-labelledby="list-members-tab">
+    <div class="container-left" style="padding: 20px; width: 30%;">
+      <ul class="list-group" *ngFor="let member of members">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ member.name }}
+          <span class="badge badge-primary badge-pill">0</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="book-lend" role="tabpanel" aria-labelledby="book-lend-tab">
+    <div class="container-left" style="padding: 20px;">
+      <form class="form-inline">
+        Select a Member
+        <select class="form-control d-flex justify-content-between align-items-center" id="formControlSelectMember">
+          <option>1</option>
+          <option>2</option>
+        </select>
+        <span style="padding-left: 25px;">
+        Select a Book
+        <select class="form-control d-flex justify-content-between align-items-center" id="formControlSelectBook">
+          <option>1</option>
+          <option>2</option>
+        </select>
+        </span>
+        <span style="padding-left: 25px;">
+        <button type="submit" class="btn btn-primary" (click)="landBook()">Land the book</button>
+        </span>
+      </form>
+    </div>
+  </div>
+
+</div>
