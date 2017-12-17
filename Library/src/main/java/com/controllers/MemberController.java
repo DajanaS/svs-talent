@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-
+@CrossOrigin
 @Controller
 @RequestMapping("/members")
 public class MemberController {
