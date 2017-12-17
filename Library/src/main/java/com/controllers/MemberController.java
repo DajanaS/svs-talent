@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-@CrossOrigin
+
 @Controller
 @RequestMapping("/members")
 public class MemberController {
@@ -21,6 +21,7 @@ public class MemberController {
     }
 
     @GetMapping
+    @ResponseBody
     public List<Member> findMembers() {
         return memberService.findMembers();
     }
