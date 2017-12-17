@@ -22,6 +22,14 @@ public class BookService {
     }
 
     public void createBook(Book book) {
-        bookRepository.save(book);
+        if (!exists(book))
+            bookRepository.save(book);
+    }
+
+    private boolean exists(Book b) {
+        Iterable<Book> books = findBooks();
+        for (Book book : books)
+            if (book.equals(b)) return true;
+        return false;
     }
 }

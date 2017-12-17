@@ -26,7 +26,15 @@ public class MemberService {
     }
 
     public void createMember(Member member) {
-        memberRepository.save(member);
+        if (!exists(member))
+            memberRepository.save(member);
+    }
+
+    private boolean exists(Member m) {
+        Iterable<Member> members = findMembers();
+        for (Member member : members)
+            if (member.equals(m)) return true;
+        return false;
     }
 
     public void landBook(Long memberId, Long bookId) {
