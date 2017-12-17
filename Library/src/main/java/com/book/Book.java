@@ -25,6 +25,10 @@ public class Book {
         members = new ArrayList<Member>();
     }
 
+    public Long getId(){
+        return id;
+    }
+
     public String getIsbn() {
         return isbn;
     }
@@ -51,7 +55,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return isbn + " " + title;
+        return id + " " + isbn + " " + title;
     }
 
     @Override

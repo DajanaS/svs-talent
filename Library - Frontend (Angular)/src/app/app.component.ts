@@ -46,4 +46,11 @@ export class AppComponent {
     this.getMembers();
     this.getBooks();
   }
+
+  landBook(memberId, bookId) {
+    if (!memberId || !bookId) {
+      return;
+    }
+    this.memberService.landBook(memberId, bookId).subscribe();
+  }
 }

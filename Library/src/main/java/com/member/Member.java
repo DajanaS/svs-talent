@@ -23,6 +23,10 @@ public class Member {
         books = new ArrayList<Book>();
     }
 
+    public Long getId(){
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -41,7 +45,7 @@ public class Member {
 
     @Override
     public String toString() {
-        return name;
+        return id + " " + name;
     }
 
     @Override

@@ -1,9 +1,10 @@
 export class Book {
+  public id: string;
   public isbn: string;
   public title: string;
-  public id: number;
 
-  constructor(isbn, title) {
+  constructor(id, isbn, title) {
+    this.id = id;
     this.isbn = isbn;
     this.title = title;
   }

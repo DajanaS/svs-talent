@@ -31,6 +31,13 @@ public class MemberController {
     public void createMember(@RequestBody Member member) {
         memberService.createMember(member);
     }
+
+    @GetMapping
+    @ResponseBody
+    @RequestMapping(value = "/land-book")
+    public void landBook(@RequestParam String memberId, String bookId) {
+        memberService.landBook(Long.parseLong(memberId), Long.parseLong(bookId));
+    }
 }
 // extension za Chrome: Postman
 // nov req na http://localhost:8080/members, nema headeri, body: raw Text->JSON(application/json)

@@ -86,20 +86,22 @@
   <div class="tab-pane" id="book-lend" role="tabpanel" aria-labelledby="book-lend-tab">
     <div class="container-left" style="padding: 20px;">
       <form class="form-inline">
-        Select a Member
-        <select class="form-control d-flex justify-content-between align-items-center" id="formControlSelectMember">
-          <option>1</option>
-          <option>2</option>
+        <select #selectedMember class="form-control d-flex justify-content-between align-items-center"
+                id="formControlSelectMember"
+                style="width:15%;">
+          <option disabled>Choose a member</option>
+          <option *ngFor="let member of members" [value]="member.id">{{ member.name }}</option>
         </select>
         <span style="padding-left: 25px;">
-        Select a Book
-        <select class="form-control d-flex justify-content-between align-items-center" id="formControlSelectBook">
-          <option>1</option>
-          <option>2</option>
+        <select #selectedBook class="form-control d-flex justify-content-between align-items-center"
+                id="formControlSelectBook"
+                style="width:15%;">
+          <option disabled>Choose a book</option>
+          <option *ngFor="let book of books" [value]="book.id">{{ book.title }}</option>
         </select>
         </span>
         <span style="padding-left: 25px;">
-        <button type="submit" class="btn btn-primary" (click)="landBook()">Land the book</button>
+        <button type="submit" class="btn btn-primary" (click)="landBook(selectedMember.value, selectedBook.value)">Land the book</button>
         </span>
       </form>
     </div>

@@ -1,12 +1,9 @@
 export class Member {
+  public id: string;
   public name: string;
-  public id: number;
 
-  constructor(name: string) {
-    this.name = name;
-  }
-
-  setId(id: number) {
+  constructor(id, name) {
     this.id = id;
+    this.name = name;
   }
 }
