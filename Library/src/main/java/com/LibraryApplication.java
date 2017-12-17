@@ -31,7 +31,7 @@ public class LibraryApplication {
         LibraryRepository repository = context.getBean(RepositoryAdapter.class);
         ReadInput reader = context.getBean(ConsoleReadInput.class);
 
-        displayMenu();
+        /*displayMenu();
         String input = reader.readInput();
 
         while (!input.equals("6")) {
@@ -82,6 +82,6 @@ public class LibraryApplication {
             displayMenu();
             input = reader.readInput();
         }
-        System.exit(-1);
+        System.exit(-1);*/
     }
 }
