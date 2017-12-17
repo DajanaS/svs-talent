@@ -3,10 +3,13 @@ package com.controllers;
 import com.BookService;
 import com.book.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-@RestController
+@CrossOrigin
+@Controller
 @RequestMapping("/books")
 public class BookController {
 
@@ -23,6 +26,7 @@ public class BookController {
     }
 
     @PostMapping
+    @ResponseBody
     public void createBook(@RequestBody Book book) {
         bookService.createBook(book);
     }
