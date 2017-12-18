@@ -1,9 +1,6 @@
 package com.member;
 
-import com.book.Book;
-
 import javax.persistence.*;
-import java.util.*;
 
 @Entity
 public class Member {
@@ -11,19 +8,14 @@ public class Member {
     @GeneratedValue
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "members", fetch = FetchType.EAGER)
-    private Collection<Book> books;
 
-    public Member() {
-        books = new ArrayList<Book>();
-    }
+    public Member(){}
 
     public Member(String name) {
         this.name = name;
-        books = new ArrayList<Book>();
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
@@ -35,17 +27,9 @@ public class Member {
         this.name = name;
     }
 
-    public void addBook(Book book) {
-        books.add(book);
-    }
-
-    public Collection<Book> getBooks() {
-        return books;
-    }
-
     @Override
     public String toString() {
-        return id + " " + name;
+        return name;
     }
 
     @Override

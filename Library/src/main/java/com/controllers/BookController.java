@@ -2,6 +2,7 @@ package com.controllers;
 
 import com.BookService;
 import com.book.Book;
+import com.member.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

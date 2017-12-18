@@ -34,7 +34,7 @@ export class MemberService {
   }
 
   public landBook(memberId, bookId) {
-    return this.http.get('http://localhost:8080/members/land-book?memberId=' + memberId + '&bookId=' + bookId)
+    return this.http.get('http://localhost:8080/lending?memberId=' + memberId + '&bookId=' + bookId)
       .map((res: Response) => res.json());
   }
 }
