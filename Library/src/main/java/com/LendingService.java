@@ -48,4 +48,22 @@ public class LendingService {
         Lending lending = new Lending(memberId, bookId);
         lendingRepository.save(lending);
     }
+
+    public List<Integer> getMemberCounts() {
+        List<Integer> counts = new ArrayList<>();
+        Iterable<Book> books = bookRepository.findAll();
+        for (Book book : books) {
+            counts.add(this.getMembersLendedAt(book.getId()).size());
+        }
+        return counts;
+    }
+
+    public List<Integer> getBookCounts() {
+        List<Integer> counts = new ArrayList<>();
+        Iterable<Member> members = memberRepository.findAll();
+        for (Member member : members) {
+            counts.add(this.getBooksLendedBy(member.getId()).size());
+        }
+        return counts;
+    }
 }

@@ -13,6 +13,8 @@ export class AppComponent {
   title = 'Library';
   public members: Member[];
   public books: Book[];
+  public memberCounts: string[];
+  public bookCounts: string[];
 
   constructor(private memberService: MemberService, private bookService: BookService) {
   }
@@ -36,10 +38,12 @@ export class AppComponent {
 
   getMembers() {
     this.memberService.getMembers().subscribe(members => this.members = members);
+    this.memberService.getMemberCounts().subscribe(memberCounts => this.memberCounts = memberCounts);
   }
 
   getBooks() {
     this.bookService.getBooks().subscribe(books => this.books = books);
+    this.bookService.getBookCounts().subscribe(bookCounts => this.bookCounts = bookCounts);
   }
 
   getBoth() {

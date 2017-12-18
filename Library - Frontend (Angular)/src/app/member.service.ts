@@ -22,6 +22,12 @@ export class MemberService {
     );
   }
 
+  public getMemberCounts(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8080/lending/books').pipe(
+      catchError(this.handleError('getMemberCounts', []))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

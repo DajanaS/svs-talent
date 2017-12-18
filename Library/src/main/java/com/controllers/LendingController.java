@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -36,5 +37,17 @@ public class LendingController {
     @ResponseBody
     public List<Member> getBookMembers(@PathVariable Long bookId) {
         return lendingService.getMembersLendedAt(bookId);
+    }
+
+    @GetMapping("/members")
+    @ResponseBody
+    public List<Integer> getMemberCounts() {
+        return lendingService.getMemberCounts();
+    }
+
+    @GetMapping("/books")
+    @ResponseBody
+    public List<Integer> getBookCounts() {
+        return lendingService.getBookCounts();
     }
 }

@@ -25,6 +25,18 @@ export class BookService {
     );
   }
 
+  public getBookMembers(id): Observable<Book[]> {
+    return this.http.get<Book[]>('http://localhost:8080/lending/book/' + id).pipe(
+      catchError(this.handleError('getBookMembers', []))
+    );
+  }
+
+  public getBookCounts(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8080/lending/members').pipe(
+      catchError(this.handleError('getBookCounts', []))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

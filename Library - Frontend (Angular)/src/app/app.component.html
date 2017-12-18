@@ -51,10 +51,10 @@
 
   <div class="tab-pane" id="list-books" role="tabpanel" aria-labelledby="list-books-tab">
     <div class="container-left" style="padding: 20px; width: 30%;">
-      <ul class="list-group" *ngFor="let book of books">
+      <ul class="list-group" *ngFor="let book of books; let i = index">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           {{ book.isbn }} {{ book.title }}
-          <span class="badge badge-primary badge-pill">0</span>
+          <span class="badge badge-primary badge-pill">{{ bookCounts[i] }}</span>
         </li>
       </ul>
     </div>
@@ -74,10 +74,10 @@
 
   <div class="tab-pane" id="list-members" role="tabpanel" aria-labelledby="list-members-tab">
     <div class="container-left" style="padding: 20px; width: 30%;">
-      <ul class="list-group" *ngFor="let member of members">
+      <ul class="list-group" *ngFor="let member of members; let i = index">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           {{ member.name }}
-          <span class="badge badge-primary badge-pill">0</span>
+          <span class="badge badge-primary badge-pill">{{ memberCounts[i] }}</span>
         </li>
       </ul>
     </div>
